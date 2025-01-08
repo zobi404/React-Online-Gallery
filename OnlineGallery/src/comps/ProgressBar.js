@@ -8,6 +8,7 @@ const {url, progress} = useStorage(file);
 useEffect(()=>{
     if(url){
         setFile(null);
+
     }
 },[url, setFile])
 

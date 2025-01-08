@@ -13,10 +13,10 @@ function App() {
   return (
     <div className="App">
       <Title/>
-      <UploadForm />
+      <UploadForm  />
       <CameraUpload />
       <ImageGrid setSelectedImage={setSelectedImage}/>
-      {selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage}/>}
+      {selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} />}
     </div>
   );
 }

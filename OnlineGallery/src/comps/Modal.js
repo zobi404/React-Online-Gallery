@@ -72,13 +72,14 @@ const Modal = ({ selectedImage, setSelectedImage }) => {
     try {
       setViewMode('download');
       // Fetch the image as a Blob
-      const response = await fetch(selectedImage); // selectedImage is the Firebase Storage URL
+      const response = await fetch(selectedImage); 
+      const filePath = selectedImage.split('/o/')[1].split('?')[0];// selectedImage is the Firebase Storage URL
       const blob = await response.blob();
 
       // Create a temporary link element
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob); // Convert the Blob to an object URL
-      link.setAttribute("download", "downloaded-image.jpg"); // Set the download attribute
+      link.setAttribute("download", filePath); // Set the download attribute
       link.style.display = "none";
 
       // Append the link to the document, click it, and remove it
