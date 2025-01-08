@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+:root{
+  --primary: #efb6b2;
+  --secondary: #4e4e4e;
+  --error: #ff4a4a;
+}
+
+/* base styles & title */
+body{
+  font-family: "Noto Serif";
+  color: var(--secondary);
+  background-color: #f5f5dc54;
+  
+}
+.App{
+  max-width: 960px;
+  margin: 0 auto;
+}
+.title h1{
+  color: var(--secondary);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: normal;
+  text-align: center;
+}
+.title h2, .title p{
+  text-align: center;
+}
+.title h2{
+  margin-top: 60px;
+  font-size: 2.6rem;
+}
+
+/* upload form styles */
+.output{
+  width: 100%;
+  text-align: center;
+  color: var(--error);
+}
+/* Wrapper to center the button */
+.wrapper {
+	width: 100%;
+	height: 100px; /* Full viewport height */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  /* File upload button */
+  .file-upload {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%; /* Circular button */
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Soft gradient background */
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.5); /* Neumorphism effect */
+	cursor: pointer;
+	transition: transform 0.2s ease;
+	
+  }
+  
+  /* Hover effect for button */
+  .file-upload:hover {
+	transform: scale(1.1); /* Slight zoom on hover */
+  }
+  
+  /* Input styling */
+  .file-upload input[type="file"] {
+	position: absolute; /* Fully cover the parent container */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1; /* Invisible but still clickable */
+	cursor: pointer;
+	z-index: 10; /* Ensure input is on top of other elements */
+  }
+  
+  /* Icon inside the button */
+  .file-upload i {
+	font-size: 24px;
+	color: #4e4e4e;
+	z-index: 1; /* Icon should be below input */
+  }
+  
+  /* Icon inside the button */
+  .file-upload i {
+	font-size: 24px;
+	color: #4e4e4e;
+	z-index: 1; /* Icon should be below input */
+  }
+  
+  
+
+/* progress bar styles */
+.progress-bar{
+  height: 5px;
+  background: var(--primary);
+  margin-top: 20px;
+}
+
+/* image grid styles */
+.img-grid{
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+}
+.img-wrap {
+	overflow: hidden;
+	height: 0;
+	padding: 50% 0; /* Padding controls height, maintaining perfect square aspect ratio */
+	position: relative;
+	opacity: 0.8;
+	background: rgba(255, 255, 255, 0.2); /* Semi-transparent white for glass effect */
+	backdrop-filter: blur(10px); /* Adds the blur effect */
+	border-radius: 16px; /* Optional: rounded corners for a smoother look */
+	border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: subtle border for edges */
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Outer shadow for lifted appearance */
+  }
+  
+  .img-wrap img {
+	min-width: 100%;
+	min-height: 100%;
+	max-width: 150%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover; /* Ensures the image fills the container proportionally */
+	transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth effects */
+  }
+  
+  /* Hover effect for the image */
+  .img-wrap img:hover {
+	opacity: 1; /* Fully visible on hover */
+	transform: scale(1.05); /* Slight zoom-in effect */
+  }
+  
+  
+  
+  
+
+/* modal styles */
+
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+
+.backdrop img{
+  display: block;
+  max-width: 60%;
+  max-height: 80%;
+  margin: 60px auto;
+  box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
+  border: 3px solid white;
+}
+/* Container styles */
+.container {
+	text-align: center;
+	margin-top: 20px;
+	position: relative;
+  }
+  
+  /* Input (hidden) */
+  input[type="file"] {
+	display: none;
+  }
+  
+  /* Camera Icon Button */
+  label[for="cameraInput"] {
+	position: fixed;
+	background-color: var(--secondary);
+	color: #fff;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+  }
+
+/* Mobile View */
+@media (max-width: 768px) {
+	label[for="cameraInput"] {
+	  position: fixed;
+	  background-color: white; /* White background for mobile */
+	  color: var(--secondary); /* Icon color */
+	  border-radius: 50%; /* Makes it circular */
+	  width: 60px; /* Adjust width for circular size */
+	  height: 60px; /* Adjust height for circular size */
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+	  bottom: 20px;
+	  right: 15%;
+	  transform: translateX(50%);
+	  z-index: 1;
+	}
+  }
+  
+  /* Desktop View */
+  @media (min-width: 769px) {
+	label[for="cameraInput"] {
+	  bottom: 20px;
+	  right: 20px;
+	  transform: translateX(0);
+	}
+  }
+  
+  /* Image Preview */
+  .image-preview {
+	width: 300px;
+	height: auto;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	margin-top: 10px;
+  }
+  
+  /* Upload Button */
+  .upload-button {
+	padding: 8px 12px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-top: 10px;
+  }
+  
+  .upload-button:hover {
+	background-color: #0056b3;
+  }
+  
+
